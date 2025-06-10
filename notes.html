@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - Ben Pegg</title>
+    <link rel="icon" type="image/png" href="images/bp_logo_v1.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="side-nav">
+        <a href="/">Home</a>
+        <a href="projects">Projects</a>
+        <a href="notes">Notes</a>
+        <a href="https://github.com/benpegg23" target="_blank">Github</a>
+        <a href="resume">Resume</a>
+        <a href="#" id="theme-toggle">dark</a>
+    </nav>
+
+    <main class="notes-content">
+        <h1>Notes</h1>
+        <p class="description">
+            A collection of course notes from some of my classes at UIUC. Feel free to use them as a supplementary resource, but please note that they may not be completely exhaustive.
+        </p>
+
+        <h2>CS 173: Discrete Structures, Summer 2025</h2>
+        <ul>
+            <li>(In progress)</li>
+        </ul>
+
+        <h2>MATH 285: Differential Equations, Summer 2025</h2>
+        <ul>
+            <li>(In progress)</li>
+        </ul>
+
+        <h2>ECE 385: Digital Systems Laboratory, Fall 2025</h2>
+        <ul>
+            <li>(In progress)</li>
+        </ul>
+
+        <h2>CS 225: Data Structures and Algorithms, Fall 2025</h2>
+        <ul>
+            <li>(In progress)</li>
+        </ul>
+
+        <h2>ECE 210: Analog Signal Processing, Fall 2025</h2>
+        <ul>
+            <li>(In progress)</li>
+        </ul>
+    </main>
+
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            toggle.textContent = isDark ? 'dark' : 'light';
+        });
+    </script>
+</body>
+</html> 
