@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Ben Pegg</title>
+    <link rel="icon" type="image/png" href="images/bp_logo_v1.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="side-nav">
+        <a href="home.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="projects.html" class="nav-link">Projects</a>
+            <div class="dropdown-content">
+                <a href="macropad.html">STM32-Based Macropad</a>
+                <a href="#">Project 2</a>
+                <a href="#">Project 3</a>
+            </div>
+        </div>
+        <a href="notes.html">Notes</a>
+        <a href="https://github.com/benpegg23" target="_blank">Github</a>
+        <a href="resume">Resume</a>
+        <a href="#" id="theme-toggle">Dark</a>
+    </nav>
+
+    <main class="notes-content">
+        <h1>Projects</h1>
+        <p class="description">
+            A showcase of my personal and academic projects in embedded systems, firmware development, and hardware design.
+        </p>
+
+        <h2><strong>Featured Projects</strong></h2>
+        <div class="project-gallery">
+            <div class="project-item">
+                <a href="macropad.html" style="display:block;width:100%"><img src="images/ParPad_HeadOn.png" alt="STM32-Based Macropad preview" class="project-image"></a>
+                <a href="macropad.html" class="project-title">STM32-Based Macropad</a>
+                <div class="project-desc">3x3 macropad with two rotary encoders, built using an STM32 microcontroller. PCB designed in KiCad, runs custom QMK-based firmware written in C allowing for fully programmable keys and custom macros.</div>
+                <div class="project-date">June 2025</div>
+            </div>
+            <div class="project-item">
+                <a href="project2.html" style="display:block;width:100%"><img src="images/banner_image.jpg" alt="Project 2 preview" class="project-image"></a>
+                <a href="project2.html" class="project-title">Project 2</a>
+                <div class="project-desc">Short description of Project 2 goes here.</div>
+                <div class="project-date">Date TBD</div>
+            </div>
+            <div class="project-item">
+                <a href="project3.html" style="display:block;width:100%"><img src="images/banner_image.jpg" alt="Project 3 preview" class="project-image"></a>
+                <a href="project3.html" class="project-title">Project 3</a>
+                <div class="project-desc">Short description of Project 3 goes here.</div>
+                <div class="project-date">Date TBD</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Load theme from localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+            toggle.textContent = savedTheme === 'dark' ? 'Light' : 'Dark';
+        }
+        
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            const newTheme = isDark ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            toggle.textContent = isDark ? 'Dark' : 'Light';
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html> 
