@@ -137,6 +137,9 @@ body:has(.notes-content) {
     box-shadow: none;
     width: 100vw;
     justify-content: center;
+    margin-top: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 [data-theme="dark"] .side-nav {
@@ -188,7 +191,7 @@ body:has(.notes-content) {
     }
 }
 
-html {
+html, body {
     margin: 0;
     padding: 0;
 }

@@ -6,6 +6,86 @@
     <title>Notes - Ben Pegg</title>
     <link rel="icon" type="image/png" href="images/bp_logo_v1.png">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .section-header {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            gap: 8px;
+            margin-bottom: 0.5rem;
+            padding-left: 0;
+        }
+        
+        .section-header img {
+            width: 32px;
+            height: 32px;
+            transition: transform 0.3s ease;
+            margin-top: 2px;
+        }
+        
+        .section-header h2 {
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+        
+        .section-content {
+            display: none;
+            margin-left: 0;
+            margin-bottom: 1.5rem;
+            padding-left: 40px;
+        }
+        
+        .section-content.active {
+            display: block;
+        }
+        
+        .section-content ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            list-style-type: disc;
+        }
+        
+        .section-content li {
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            font-style: normal;
+        }
+        
+        .section-header.active img {
+            transform: rotate(90deg);
+        }
+
+        .section {
+            margin-bottom: 1.5rem;
+        }
+
+        .notes-content {
+            text-align: left;
+            width: 600px;
+            padding: 0 2rem;
+        }
+
+        .notes-content .description {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .examlet-title {
+            font-size: 1rem;
+            font-weight: normal;
+            margin: 1rem 0 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .discussion-note {
+            font-style: italic;
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
     <nav class="side-nav">
@@ -30,41 +110,89 @@
             A collection of course notes from some of my classes at UIUC. Feel free to use them as a supplementary resource, but please note that they may not be completely exhaustive.
         </p>
 
-        <h2>CS 173: Discrete Structures, Summer 2025</h2>
-        <ul>
-            <li>(In progress)</li>
-        </ul>
+        <div class="section">
+            <div class="section-header">
+                <img src="images/arrow_black.png" alt="Expand">
+                <h2>CS 173: Discrete Structures, Summer 2025</h2>
+            </div>
+            <div class="section-content">
+                <a href="https://github.com/benpegg23/CS173" target="_blank">Github Repo</a>
+                <div class="discussion-note">Discussion problems are included in their corresponding lecture notes</div>
+                <div class="examlet-title">Examlet 1</div>
+                <ul>
+                    <li><a href="files/Lecture_1.pdf" target="_blank">Lecture 1</a></li>
+                </ul>
+            </div>
+        </div>
 
-        <h2>MATH 285: Differential Equations, Summer 2025</h2>
-        <ul>
-            <li>(In progress)</li>
-        </ul>
+        <div class="section">
+            <div class="section-header">
+                <img src="images/arrow_black.png" alt="Expand">
+                <h2>MATH 285: Differential Equations, Summer 2025</h2>
+            </div>
+            <div class="section-content">
+                <ul>
+                    <li>(In progress)</li>
+                </ul>
+            </div>
+        </div>
 
-        <h2>ECE 385: Digital Systems Laboratory, Fall 2025</h2>
-        <ul>
-            <li>(In progress)</li>
-        </ul>
+        <div class="section">
+            <div class="section-header">
+                <img src="images/arrow_black.png" alt="Expand">
+                <h2>ECE 385: Digital Systems Laboratory, Fall 2025</h2>
+            </div>
+            <div class="section-content">
+                <ul>
+                    <li>(In progress)</li>
+                </ul>
+            </div>
+        </div>
 
-        <h2>CS 225: Data Structures and Algorithms, Fall 2025</h2>
-        <ul>
-            <li>(In progress)</li>
-        </ul>
+        <div class="section">
+            <div class="section-header">
+                <img src="images/arrow_black.png" alt="Expand">
+                <h2>CS 225: Data Structures and Algorithms, Fall 2025</h2>
+            </div>
+            <div class="section-content">
+                <ul>
+                    <li>(In progress)</li>
+                </ul>
+            </div>
+        </div>
 
-        <h2>ECE 210: Analog Signal Processing, Fall 2025</h2>
-        <ul>
-            <li>(In progress)</li>
-        </ul>
+        <div class="section">
+            <div class="section-header">
+                <img src="images/arrow_black.png" alt="Expand">
+                <h2>ECE 210: Analog Signal Processing, Fall 2025</h2>
+            </div>
+            <div class="section-content">
+                <ul>
+                    <li>(In progress)</li>
+                </ul>
+            </div>
+        </div>
     </main>
 
     <script>
         const toggle = document.getElementById('theme-toggle');
         const html = document.documentElement;
 
+        // Function to update arrow images based on theme
+        function updateArrowImages() {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            const arrowImages = document.querySelectorAll('.section-header img');
+            arrowImages.forEach(img => {
+                img.src = isDark ? 'images/arrow_white.png' : 'images/arrow_black.png';
+            });
+        }
+
         // Load theme from localStorage
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             html.setAttribute('data-theme', savedTheme);
             toggle.textContent = savedTheme === 'dark' ? 'Light' : 'Dark';
+            updateArrowImages();
         }
         
         toggle.addEventListener('click', (e) => {
@@ -74,6 +202,25 @@
             html.setAttribute('data-theme', newTheme);
             toggle.textContent = isDark ? 'Dark' : 'Light';
             localStorage.setItem('theme', newTheme);
+            updateArrowImages();
+        });
+
+        // Handle section toggling
+        document.querySelectorAll('.section-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const arrow = header.querySelector('img');
+                
+                header.classList.toggle('active');
+                content.classList.toggle('active');
+                
+                // Rotate arrow based on state
+                if (header.classList.contains('active')) {
+                    arrow.style.transform = 'rotate(90deg)';
+                } else {
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            });
         });
     </script>
 </body>
