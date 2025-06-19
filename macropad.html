@@ -8,22 +8,16 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Mobile menu link -->
+    <span id="mobile-menu-link" style="display:none;position:fixed;top:1rem;left:50%;transform:translateX(-50%);z-index:200;font-size:1.1rem;color:var(--link-color);cursor:pointer;text-decoration:underline;">Menu</span>
     <nav class="side-nav">
         <a href="index.html">Home</a>
-        <div class="nav-dropdown">
-            <a href="projects.html" class="nav-link">Projects</a>
-            <div class="dropdown-content">
-                <a href="macropad.html">STM32-Based Macropad</a>
-                <!-- Project 2 and 3 temporarily hidden
-                <a href="project2.html">Project 2</a>
-                <a href="project3.html">Project 3</a>
-                -->
-            </div>
-        </div>
+        <a href="projects.html">Projects</a>
         <a href="notes.html">Notes</a>
         <a href="https://github.com/benpegg23" target="_blank">Github</a>
         <a href="resume">Resume</a>
         <a href="#" id="theme-toggle">Dark</a>
+        <span id="mobile-close-link">Back</span>
     </nav>
 
     <main class="notes-content">
@@ -40,14 +34,68 @@
     <script>
         const toggle = document.getElementById('theme-toggle');
         const html = document.documentElement;
+        const mobileMenuLink = document.getElementById('mobile-menu-link');
+        const mobileCloseLink = document.getElementById('mobile-close-link');
+        const sideNav = document.querySelector('.side-nav');
+
+        // Function to update arrow images based on theme
+        function updateArrowImages() {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            const arrowImages = document.querySelectorAll('.section-header img');
+            arrowImages.forEach(img => {
+                img.src = isDark ? 'images/arrow_white.png' : 'images/arrow_black.png';
+            });
+        }
+
+        // Function to update menu/close icon based on theme
+        function updateMenuIcons() {
+            /* No icon to update for close link */
+        }
+
+        // Show/hide nav on mobile
+        function showMobileNav() {
+            sideNav.style.display = 'flex';
+            mobileMenuLink.style.display = 'none';
+            mobileCloseLink.style.display = 'block';
+        }
+        function hideMobileNav() {
+            sideNav.style.display = 'none';
+            mobileMenuLink.style.display = 'block';
+            mobileCloseLink.style.display = 'none';
+        }
+
+        // Responsive nav toggle
+        function handleResize() {
+            if (window.innerWidth <= 768) {
+                sideNav.style.display = 'none';
+                mobileMenuLink.style.display = 'block';
+                mobileCloseLink.style.display = 'none';
+            } else {
+                sideNav.style.display = 'flex';
+                mobileMenuLink.style.display = 'none';
+                mobileCloseLink.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        document.addEventListener('DOMContentLoaded', handleResize);
+        mobileMenuLink.addEventListener('click', showMobileNav);
+        mobileCloseLink.addEventListener('click', hideMobileNav);
+
+        // Update icons on theme change
+        function updateThemeAndIcons() {
+            updateArrowImages();
+            updateMenuIcons();
+        }
 
         // Load theme from localStorage
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             html.setAttribute('data-theme', savedTheme);
             toggle.textContent = savedTheme === 'dark' ? 'Light' : 'Dark';
+            updateThemeAndIcons();
         }
-        
+
         toggle.addEventListener('click', (e) => {
             e.preventDefault();
             const isDark = html.getAttribute('data-theme') === 'dark';
@@ -55,6 +103,7 @@
             html.setAttribute('data-theme', newTheme);
             toggle.textContent = isDark ? 'Dark' : 'Light';
             localStorage.setItem('theme', newTheme);
+            updateThemeAndIcons();
         });
     </script>
 </body>
