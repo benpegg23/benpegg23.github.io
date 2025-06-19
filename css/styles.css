@@ -189,6 +189,51 @@ body:has(.notes-content) {
         width: auto;
         padding: 1rem;
     }
+    
+    .side-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: var(--bg-color);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        z-index: 150;
+        padding-top: 3.5rem;
+        display: none; /* JS toggles this */
+    }
+    .side-nav a {
+        display: block;
+        font-size: 1rem;
+        text-align: center;
+        margin: 0.05rem 0;
+        line-height: 1.1;
+        padding: 0;
+    }
+    #mobile-menu-link {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 200;
+        font-size: 1.1rem;
+        color: var(--link-color);
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    #mobile-close-link {
+        display: block;
+        font-size: 1rem;
+        text-align: center;
+        margin: 1.5rem 0 0 0;
+        font-weight: bold;
+        color: var(--link-color);
+        cursor: pointer;
+        text-decoration: underline;
+    }
 }
 
 html, body {
