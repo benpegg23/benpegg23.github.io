@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHIP-8 Emulator - Ben Pegg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=EB+Garamond:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="files/favicon1.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="back-link">← Home</a>
+    </header>
+
+    <main>
+      <article class="project-detail">
+        <h1>CHIP-8 Emulator</h1>
+        <p class="project-date">
+          <a href="https://github.com/benpegg23/CHIP-8-Emulator" target="_blank" rel="noopener noreferrer">GitHub
+            Repository</a>
+        </p>
+
+        <section class="project-content">
+          <p>
+            This is a CHIP-8 emulator implementation written in C++ to run .ch8 roms. CHIP-8 is an interpreted
+            programming language developed in the 1970s for simple video games. See the <a
+              href="https://github.com/benpegg23/CHIP-8-Emulator/blob/main/README.md" target="_blank"
+              rel="noopener noreferrer">readme</a>
+            in the repo for more implementation details.
+          </p>
+
+          <h2>Gameplay Demo</h2>
+          <video src="files/CHIP-8_outlaw_gameplay.mp4" class="project-banner" controls loop muted>
+            Your browser does not support the video tag.
+          </video>
+          <p class="video-caption">Outlaw</p>
+
+          <video src="files/CHIP-8_breakout_gameplay.mp4" class="project-banner" controls loop muted>
+            Your browser does not support the video tag.
+          </video>
+          <p class="video-caption">Breakout</p>
+        </section>
+      </article>
+
+      <hr class="separator">
+
+      <footer>
+        <ul class="links">
+          <li><a href="mailto:benpegg23@gmail.com">Email</a></li>
+          <li><a href="files/Ben_Pegg_Resume.pdf" target="_blank">Resume</a></li>
+          <li><a href="https://github.com/benpegg23" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/benpegg" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/bypphotos/" target="_blank" rel="noopener noreferrer">Photos</a></li>
+        </ul>
+        <pre id="coffee-cup" class="coffee-animation" aria-hidden="true"></pre>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

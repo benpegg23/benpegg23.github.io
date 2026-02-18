@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FPGA IR Tracking and Parallax Renderer - Ben Pegg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=EB+Garamond:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="files/favicon1.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="back-link">← Home</a>
+    </header>
+
+    <main>
+      <article class="project-detail">
+        <h1>FPGA IR Tracking and Parallax Renderer</h1>
+        <p class="project-date">
+          <a href="javascript:void(0)">GitHub
+            Repository (Coming Soon)</a>
+        </p>
+
+        <section class="project-content">
+          <p>
+            An FPGA-based system that uses IR tracking to create a parallax effect based on viewer position.
+          </p>
+
+          <h2>Demo</h2>
+          <div class="image-row">
+            <img src="files/parallax_camera.jpg" alt="Parallax Camera Setup" class="project-banner">
+            <img src="files/parallax_top_down.jpg" alt="Parallax Top Down View" class="project-banner">
+          </div>
+          <p class="video-caption">OV7670 camera module with an IR-pass filter attached, connected to the Urbana Board
+          </p>
+
+          <video controls muted class="project-banner small-video">
+            <source src="files/parallax_demo_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <p class="video-caption">Demonstration of the parallax effect and hardware setup.</p>
+
+          <h2>Report</h2>
+          <p>
+            <a href="files/Parallax_Renderer_Report.pdf" target="_blank">Open PDF in new tab</a>
+          </p>
+          <iframe src="files/Parallax_Renderer_Report.pdf#navpanes=0" class="pdf-viewer"></iframe>
+        </section>
+      </article>
+
+      <hr class="separator">
+
+      <footer>
+        <ul class="links">
+          <li><a href="mailto:benpegg23@gmail.com">Email</a></li>
+          <li><a href="files/Ben_Pegg_Resume.pdf" target="_blank">Resume</a></li>
+          <li><a href="https://github.com/benpegg23" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/benpegg" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/bypphotos/" target="_blank" rel="noopener noreferrer">Photos</a></li>
+        </ul>
+        <pre id="coffee-cup" class="coffee-animation" aria-hidden="true"></pre>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
