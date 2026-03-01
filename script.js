@@ -29,6 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set initial frame
     animateCoffee();
 
+    // Random footer image
+    const footerImg = document.getElementById('footer-photo');
+    if (footerImg) {
+        const count = 15;
+        const n = Math.floor(Math.random() * count) + 1;
+        footerImg.src = `files/footer_images/footer${n}.jpg`;
+        footerImg.alt = `Footer photo ${n}`;
+    }
+
     // Animate every 500ms
     setInterval(animateCoffee, coffeeAnimation.speed);
 
