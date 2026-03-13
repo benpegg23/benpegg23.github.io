@@ -147,6 +147,29 @@ main {
     margin-bottom: 24px;
 }
 
+.refresh-button {
+    display: block;
+    margin: 0 auto 24px auto;
+    background: none;
+    border: none;
+    color: #888888;
+    font-size: 14px;
+    font-style: italic;
+    font-family: 'EB Garamond', Georgia, serif;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.refresh-button:hover {
+    color: #d96930;
+}
+
+.refresh-button span {
+    font-style: normal;
+    display: inline-block;
+    margin-right: 4px;
+}
+
 
 
 .bio p {

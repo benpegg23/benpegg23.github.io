@@ -31,11 +31,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Random footer image
     const footerImg = document.getElementById('footer-photo');
-    if (footerImg) {
+    const refreshBtn = document.getElementById('refresh-footer-image');
+    
+    function setRandomFooterImage() {
+        if (!footerImg) return;
         const count = 15;
         const n = Math.floor(Math.random() * count) + 1;
         footerImg.src = `files/footer_images/footer${n}.jpg`;
         footerImg.alt = `Footer photo ${n}`;
+    }
+
+    if (footerImg) {
+        setRandomFooterImage();
+    }
+    
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', setRandomFooterImage);
     }
 
     // Animate every 500ms
