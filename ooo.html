@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FPGA IR Tracking and Parallax Renderer - Ben Pegg</title>
+  <title>Superscalar Out-of-Order RISC-V Processor - Ben Pegg</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -22,33 +22,27 @@
 
     <main>
       <article class="project-detail">
-        <h1>FPGA IR Tracking and Parallax Renderer</h1>
+        <h1>Superscalar Out-of-Order RISC-V Processor</h1>
 
         <section class="project-content">
           <p>
-            An FPGA-based system that uses IR tracking to create a parallax effect based on viewer position and movement.
+            This is <em>IllOOM</em>, my Out-of-Order processor that I designed and implemented with my team as part of UIUC's ECE 411. Some noteable features:
           </p>
-
-          <h2>Demo</h2>
-          <div class="image-row">
-            <img src="files/parallax_camera.jpg" alt="Parallax Camera Setup" class="project-banner">
-            <img src="files/parallax_top_down.jpg" alt="Parallax Top Down View" class="project-banner">
-          </div>
-          <p class="video-caption">OV7670 camera module with an IR-pass filter attached, connected to the Urbana Board
-          </p>
-
-          <video controls muted class="project-banner small-video">
-            <source src="files/parallax_demo_video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-
-          <p class="video-caption">Demonstration of the parallax effect and hardware setup.</p>
+          <ul>
+            <li>4-way frontend, 2-way dispatch/commit RV32IM processor using Explicit Register Renaming architecture</li>
+            <li>Advanced features included a GShare branch predictor, pipelined L1 instruction cache, split LSQ with forwarding, writethrough post-commit store buffer, N-way superscalar frontend parameterizability, and more</li>
+            <li>Synthesized core at 614 MHz on FreePDK’s 45nm process node, achieving an IPC of 1.587 on the compression benchmark</li>
+            <li>Ranked 5th out of 34 teams in performance competition across 11 benchmarks</li>
+          </ul>
 
           <h2>Report</h2>
           <p>
-            <a href="files/Parallax_Renderer_Report.pdf" target="_blank">Open PDF in new tab</a>
+            <a href="files/IllOOM_Report.pdf" target="_blank">Open PDF in new tab</a>
           </p>
-          <iframe src="files/Parallax_Renderer_Report.pdf#navpanes=0" class="pdf-viewer"></iframe>
+          <iframe src="files/IllOOM_Report.pdf#navpanes=0" class="pdf-viewer"></iframe>
+
+          <h2>Block Diagram</h2>
+          <img src="files/IllOOM_Block_Diagram.png" alt="IllOOM Block Diagram" class="project-banner">
         </section>
       </article>
 
