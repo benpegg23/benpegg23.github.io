@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RV32I Bitsliced Datapath Layout - Ben Pegg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=EB+Garamond:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="files/favicon1.png">
+  <link rel="stylesheet" href="style.css?v=7">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="back-link">← Home</a>
+    </header>
+
+    <main>
+      <article class="project-detail">
+        <h1>RV32I Bitsliced Datapath Layout</h1>
+
+        <section class="project-content">
+          <p>
+            This is my RV32I bitsliced datapath layout that I designed over the course of UIUC's ECE 425. The first part of constructing the layout was designing a standard cell library that could be used to create larger components.
+          </p>
+
+          <div class="image-row stdcell-row">
+            <div class="stdcell-wrap mux2-wrap">
+              <img src="files/mux2_layout.png" alt="mux2 standard cell layout" class="stdcell-img">
+            </div>
+            <div class="stdcell-wrap nand2-wrap">
+              <img src="files/nand2_layout.png" alt="nand2 standard cell layout" class="stdcell-img">
+            </div>
+          </div>
+          <p class="video-caption">mux2 standard cell layout (left) and nand2 standard cell layout (right)</p>
+
+          <p>
+            The complete standard cell library included <code>and2</code>, <code>aoi21</code>, <code>buf</code>, <code>dff</code>, <code>latch</code>, <code>inv</code>, <code>mux2</code>, <code>nand2</code>, <code>nor2</code>, <code>oai21</code>, <code>or2</code>, <code>xnor2</code>, and <code>xor2</code>.
+          </p>
+
+          <p>
+            Once these layouts were finished, the next phase was implementing the full RV32I datapath. Each piece of the bitsliced design was laid out manually, using SystemVerilog testbenches to ensure functionality.
+          </p>
+
+          <img src="files/alu_layout.png" alt="Bitsliced alu layout" class="project-banner">
+          <p class="video-caption">Bitsliced alu layout</p>
+
+          <img src="files/regfile_layout.png" alt="Bitsliced regfile layout" class="project-banner">
+          <p class="video-caption">Bitsliced regfile layout</p>
+
+          <p>
+            After the bitsliced design was finished and verified, the full datapath was laid out using 32 connected instances of the bitsliced design.
+          </p>
+
+          <img src="files/rv32i_datapath_layout.png" alt="Complete RV32I datapath layout" class="project-banner">
+          <p class="video-caption">Complete RV32I datapath layout</p>
+
+          <p>
+            After I finished my manual layout, I transitioned to automated place-and-route using Cadence Innovus and TCL scripting. By scripting the RTL-to-GDSII flow, I synthesized and routed the control unit logic, which was then imported back into Virtuoso and integrated with my manually designed datapath to complete the full-chip integration. I also automated the PnR of the entire CPU using my custom standard cell library.
+          </p>
+
+          <img src="files/control.png" alt="Automated PnR layout of the control unit" class="project-banner">
+          <p class="video-caption">Automated PnR layout of the control unit</p>
+
+          <img src="files/integration.png" alt="Automated PnR layout of the control unit integrated with my custom datapath layout" class="project-banner">
+          <p class="video-caption">Automated PnR layout of the control unit integrated with my custom datapath layout</p>
+
+          <img src="files/cpu1.png" alt="Automated PnR layout of the entire RV32I CPU" class="project-banner">
+          <p class="video-caption">Automated PnR layout of the entire RV32I CPU</p>
+        </section>
+      </article>
+
+      <hr class="separator">
+
+      <footer>
+        <ul class="links">
+          <li><a href="mailto:benpegg23@gmail.com">Email</a></li>
+          <li><a href="files/Ben_Pegg_Resume.pdf" target="_blank">Resume</a></li>
+          <li><a href="https://github.com/benpegg23" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/benpegg" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/bypphotos/" target="_blank" rel="noopener noreferrer">Photos</a></li>
+        </ul>
+        <div class="footer-image-wrap">
+          <img id="footer-photo" src="" alt="">
+        </div>
+        <button id="refresh-footer-image" class="refresh-button"><span>↻</span> New Image</button>
+        <pre id="coffee-cup" class="coffee-animation" aria-hidden="true"></pre>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

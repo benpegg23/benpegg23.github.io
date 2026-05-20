@@ -139,6 +139,33 @@ main {
     width: calc(50% - 8px);
 }
 
+.image-row.stdcell-row {
+    display: flex;
+    width: 80%;
+    margin: 24px auto 8px auto;
+    align-items: center;
+    gap: 24px;
+}
+
+.image-row.stdcell-row .stdcell-wrap {
+    display: block;
+}
+
+.image-row.stdcell-row .mux2-wrap {
+    flex: 913509 913509 0%;
+}
+
+.image-row.stdcell-row .nand2-wrap {
+    flex: 328428 328428 0%;
+}
+
+.image-row.stdcell-row .stdcell-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
 .video-caption {
     text-align: center;
     font-style: italic;
@@ -203,6 +230,11 @@ sup {
     font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
     font-size: 0.8em;
     vertical-align: super;
+}
+
+code {
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+    font-size: 14px;
 }
 
 /* Notes and Projects sections */

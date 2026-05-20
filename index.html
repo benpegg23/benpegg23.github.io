@@ -2,6 +2,11 @@
 <html lang="en">
 
 <head>
+    <script>
+      if (window.location.pathname.endsWith('/index.html')) {
+        window.location.replace(window.location.pathname.replace('/index.html', '/'));
+      }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ben Pegg</title>
@@ -42,6 +47,9 @@
                 <ul>
                     <li>
                         <a href="ooo.html">Superscalar Out-of-Order RISC-V Processor</a>
+                    </li>
+                    <li>
+                        <a href="datapath.html">RV32I Bitsliced Datapath Layout</a>
                     </li>
                     <li>
                         <a href="fpga.html">FPGA IR Tracking and Parallax Renderer</a>
